@@ -29,7 +29,7 @@ jobs:
         continue-on-error: true
 
       - name: Build container image
-        run: docker build -t ${{ env.CONTAINER_REGISTRY_PULL_SECRET }}/${{ env.DOCKER_USERNAME }}/racing-game-app:${{ env.GITHUB_SHA:0:7 }}
+        run: docker build -t ${{ env.CONTAINER_REGISTRY_PULL_SECRET }}/${{ env.DOCKER_USERNAME }}/racing-game-app:${{ env.GITHUB_SHA }}_short .
 
       - name: Docker Login
         run: docker login -u ${{ env.DOCKER_USERNAME }} -p ${{ env.DOCKER_PASSWORD }} ${{ env.CONTAINER_REGISTRY_PULL_SECRET }}
